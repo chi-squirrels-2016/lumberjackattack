@@ -1,30 +1,41 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+Team Name: lumberjackAttack
 
-### Purpose
-The Sinatra Skeleton:
+Team Members: 
+- Tiffany Larson
+- Lauren Reid
+- James Artz
+- Meagan Munch
+- Sabri Helal
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
 
-### Quickstart
+#User-Stories:
+- As a User, I want to be able to see all the questions that are listed
+- As a User, I want to be able to post Questions
+- As a User, I want to be able to post answers to Questions- when Logged in.
+- As a User, I want to be able to post comments to Questions & Answers- when Logged in.
+- As a User, I want to be able to select the best Answer to each of my Questions
+- As a User, I want to be able to vote on Questions, Comments and Answers
+- As a User, I want to be able to access the main content( Questions,Answers & Comments) without having to log in.
 
-1.  `bundle install`
-2.  `shotgun config.ru`
 
-As needed, create models & migrations with the `rake` tasks:
+# Release 0
+------------
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+- As a User, I want to be able to see all the questions that are listed
+- As a User, I want to be able to post Questions
+- As a User, I want to be able to post answers to Questions- when Logged in.
 
-### Contributing
+# Release 1
+-----------
+- As a User, I want to be able to post comments to Questions & Answers- when Logged in.
+- As a User, I want to be able to select the best Answer to each of my Questions
+#(Ajaxify Website)
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+# Release 2
+-----------
+- As a User, I want to be able to vote on Questions, Comments and Answers
+- As a User, I want to be able to access the main content( Questions,Answers & Comments) without having to log in.
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
-
-Be prepared to give and receive specific, actionable, and kind feedback!
+#Release 3,4 etc...
+------------------
+- Layout ( Bootstrap?)
