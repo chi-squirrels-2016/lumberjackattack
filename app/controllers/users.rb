@@ -6,8 +6,7 @@ end
 post '/signup' do
   user = User.create(email: params[:email], username: params[:username], password: params[:password])
   session[:user_id] = user.id
-  redirect "/login"
-  # redirect "/questions"
+  redirect "/questions"
 end
 
 post '/login' do
@@ -15,8 +14,7 @@ post '/login' do
   user = User.authenticate(params[:email], params[:password])
   if user
     session[:user_id] = user.id
-    redirect "/login"
-    # redirect "/users/#{user.id}/questions"
+    redirect "/users/#{user.id}/questions"
   else
     redirect "/"
   end
