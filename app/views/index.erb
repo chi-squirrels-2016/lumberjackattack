@@ -2,6 +2,8 @@
 	<% @questions.each do |question| %>
 	
 	<article id= '<%= question.id %>'>
+		<div class="votes"><%= question.votes.count %> Votes</div>
+		<div class="answers"><%= question.answers.count %> Answers</div>		
 		<a href="/questions/<%= question.id %>"	><%= question.title %></a>
 	</article>
 	<% end %>
