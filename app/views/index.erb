@@ -1,0 +1,10 @@
+<div class= "container">
+	<% @questions.each do |question| %>
+	
+	<article id= '<%= question.id %>'>
+		<a href="/questions/<%= question.id %>"	><%= question.title %></a>
+	</article>
+	<% end %>
+
+
+</div>
