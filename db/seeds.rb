@@ -54,3 +54,5 @@ votes55 = answer5.votes.create!(value: 5)
 votes66 = answer6.votes.create!(value: 6)
 votes77 = answer7.votes.create!(value: 7)
 votes88 = answer8.votes.create!(value: 8)
+
+
