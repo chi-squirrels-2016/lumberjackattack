@@ -1,8 +1,8 @@
-tiffany = User.create!(email: "tiffany@mail.com", passsword: "password", username: "Lumberjackin_Tiffany")
-lauren = User.create!(email: "lauren@mail.com", passsword: "password", username: "Lumberjackin_Lauren")
-james = User.create!(email: "james@mail.com", passsword: "password", username: "Lumberjackin_James")
-sabri = User.create!(email: "sabri@mail.com", passsword: "password", username: "Lumberjackin_Sabri")
-meagan = User.create!(email: "meagan@mail.com", passsword: "password", username: "Lumberjackin_Meagan")
+tiffany = User.create!(email: "tiffany@mail.com", password: "password", username: "Lumberjackin_Tiffany")
+lauren = User.create!(email: "lauren@mail.com", password: "password", username: "Lumberjackin_Lauren")
+james = User.create!(email: "james@mail.com", password: "password", username: "Lumberjackin_James")
+sabri = User.create!(email: "sabri@mail.com", password: "password", username: "Lumberjackin_Sabri")
+meagan = User.create!(email: "meagan@mail.com", password: "password", username: "Lumberjackin_Meagan")
 
 
 question1 = Question.create!(title: "How do you shave your beard in the dark?", content: "Seriously guys, I can't see anything", user_id: 1)
