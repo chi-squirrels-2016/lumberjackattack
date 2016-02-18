@@ -55,3 +55,12 @@ post "/questions/:id/answers" do
   end
 end
 
+# post "/questions/:question_id/answers/:answer_id/best_answer" do
+#   if request.xhr?
+
+#   else
+#   end
+# end
+
+
+
