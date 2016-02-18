@@ -11,36 +11,37 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
   </script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
   <script src="/js/application.js"></script>
-
 
   <title></title>
 </head>
 <body>
   <header>
-    <nav class= "navbar navbar-default">
-      <h1 class="navbar-brand">LumberJackOverFlow</h1>
+    <nav class= "navbar navbar-default navbar-fixed top">
+      <div class= "container">
+        <h1 class="navbar-brand">LumberJackOverFlow</h1>
 
-      <%  if current_user %>
-      <ul class="navbar" id="options">
-        <li><button><a href="/">home</a></button></li>
+        <%  if current_user %>
+        <ul class="navbar" id="options">
+          <li><button><a href="/">home</a></button></li>
 
-        <li><form action="/logout" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="logout">
-        </form></li>
-        <li><button><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></button></li>
-        <% else %>
-        <button><a href="/">home</a></button>
-        <button><a href="/login">login</a></button>
-        <button><a href="/login">register</a></button>
-        <% end %>
+          <li><form action="/logout" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="logout">
+          </form></li>
+          <li><button><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></button></li>
+          <% else %>
+          <button><a href="/">home</a></button>
+          <button><a href="/login">login</a></button>
+          <button><a href="/login">register</a></button>
+          <% end %>
+        </div>
 
       </nav>
     </header>

@@ -47,12 +47,16 @@ ul {
 	display:inline-block;
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+	background-color: #f8f8f8;
+	border-color: #e7e7e7;
 }
 li {
 	display: inline;
 }
 #options {
 	display: inline;
+}
+
+.container {
+	width: 1200px;
 }
