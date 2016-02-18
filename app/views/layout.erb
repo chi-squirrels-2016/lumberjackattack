@@ -27,6 +27,7 @@
       <form action="/logout" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="logout">
+      <button><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></button>
       </form>
 
       <% else %>

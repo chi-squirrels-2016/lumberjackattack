@@ -13,8 +13,9 @@ post "/questions" do
 	redirect "/questions/#{@question.id}"
 end
 
-get "/questions/:id/answers" do
+get "/questions/:id" do
+  @question = Question.find(params[:id])
   @answer = Answer.where(question_id: params[:id])
-  erb :"/questions/answers"
+  erb :"/questions/show"
 end
 
