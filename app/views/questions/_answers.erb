@@ -1,5 +1,10 @@
 <% answers.each do |answer| %>
   <p><%= answer.content %></p>
   <p class="author">By: <%=User.find_by(id: answer.user_id).username %></p>
-
+  <p>Votes:<%= answer.votes.count %> </p>
+  <p class="vote">
+    <form action="/questions/<%= the_id %>/answers/<%= answer.id %>" method="POST">
+      <input type="submit" value="UpVote">
+    </form>
+  </p>
 <% end %>
