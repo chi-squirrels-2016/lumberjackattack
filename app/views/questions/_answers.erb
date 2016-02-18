@@ -3,5 +3,18 @@
   <p><%= answer.content %></p>
   <p class="author">By: <%=User.find_by(id: answer.user_id).username %>, Date: <%= answer.created_at %></p>
 
+
+  <form id="best_answer" name="best_answer" action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/best_answer" method="post">
+    <button id='button' type='submit'>Best Answer?!</button>
+  </form>
+
+
+  <p>Votes:<%= answer.votes.count %> </p>
+  <p class="vote">
+    <form action="/questions/<%= the_id %>/answers/<%= answer.id %>" method="POST">
+      <input type="submit" value="UpVote">
+    </form>
+  </p>
+
 <% end %>
 </div>

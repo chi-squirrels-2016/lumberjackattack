@@ -37,6 +37,7 @@
     </div>
   </div>
 </div>
+
 <div id="answer-container">
-<%= erb :"questions/_answers", locals: {answers: @answers}  %>
+<%= erb :"questions/_answers", locals: {answers: @answers, the_id: @question.id}  %>
 </div>

@@ -51,10 +51,28 @@ $(document).ready(function() {
 
     });
   });
+
   $("#answer_button").on("click", function(event){
     event.preventDefault();
     $(".answer_form").slideToggle();
   });
+  // $("#best_answer").on("click", function (event) {
+  //   event.preventDefault();
+  //   var url = $(this).attr("action");
+  //   var type = $(this).attr("method");
+  //   $.ajax({
+  //     type: type,
+  //     url: url
+  //   }).done( function(response) {
+
+
+  //   })
+
+
+
+
+  // })
+
 });
 
 
