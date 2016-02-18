@@ -1,14 +1,16 @@
 <div class="headline">
-	<a href="/questions/ask">Ask a Question</a>
+	<a href="/questions/ask" class="btn question">Ask a Question</a>
 </div>
 <div class= "container">
 
 	<% @questions.each do |question| %>
 	
-	<article id= '<%= question.id %>'>
-		<div class="votes"><%= question.votes.count %> Votes</div>
-		<div class="answers"><%= question.answers.count %> Answers</div>		
-		<a href="/questions/<%= question.id %>"	><%= question.title %></a>
+	<ul id= '<%= question.id %>'>
+		<li><a href="/questions/<%= question.id %>"	><%= question.title %></a></li>
+		<li class="votes"><%= question.votes.count %> Votes</li>
+		<li class="answers"><%= question.answers.count %> Answers</li>		
+			
+	</ul>
 	</article>
 	<% end %>
 
