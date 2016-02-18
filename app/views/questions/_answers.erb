@@ -1,5 +1,7 @@
+<div id="answer-block">
 <% answers.each do |answer| %>
   <p><%= answer.content %></p>
   <p class="author">By: <%=User.find_by(id: answer.user_id).username %>, Date: <%= answer.created_at %></p>
 
 <% end %>
+</div>
