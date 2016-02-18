@@ -14,8 +14,9 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/application.css">
 
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  </script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
 
@@ -24,7 +25,7 @@
 <body>
   <header>
     <nav class= "navbar navbar-default">
-    <h1 class="navbar-brand">LumberJackOverFlow</h1>
+      <h1 class="navbar-brand">LumberJackOverFlow</h1>
 
       <%  if current_user %>
       <ul class="navbar" id="options">
@@ -41,8 +42,8 @@
         <button><a href="/login">register</a></button>
         <% end %>
 
-    </nav>
-  </header>
-  <%= yield %>
-</body>
-</html>
+      </nav>
+    </header>
+    <%= yield %>
+  </body>
+  </html>
