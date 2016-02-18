@@ -12,3 +12,10 @@ post "/questions" do
 	current_user.questions << @question
 	redirect "/questions/#{@question.id}"
 end
+
+get "/questions/:id" do
+  @question = Question.find(params[:id])
+
+  erb :"/questions/show"
+end
+
