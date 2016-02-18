@@ -14,7 +14,7 @@ post "/questions" do
 end
 
 get "/questions/:id/answers" do
-  @answer = Answer.where(question_id: params[:id])
+  @answers = Answer.where(question_id: params[:id]).to_a
   erb :"/questions/answers"
 end
 
