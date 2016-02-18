@@ -15,6 +15,7 @@ end
 
 get "/questions/:id" do
   @question = Question.find(params[:id])
+  @answers = Answer.where(question_id: params[:id])
   @comments = @question.comments
   @username = User.find(session[:user_id]).username
   p @username
@@ -43,6 +44,14 @@ post "/questions/:question_id/comment" do
 end
 
 
-# when you click the add comment button, a comment form drops down, the add comment button disappears (magically)
-# if you don't add text to the comment form, it will not save and an error pops up
-# if you do add text, when you click the button, the comment is saved in the data base, it appears under the question (magically), and the add comment button reappears
+post "/questions/:id/answers" do
+  @answer = Answer.create(user_id: current_user.id, question_id: params[:id], content: params[:answer][:content])
+  answers = Answer.where(question_id: params[:id]).to_a
+  if request.xhr?
+    status 200
+    erb :"/questions/_answers", layout: false, locals: {answers: answers}
+  else
+    puts "You have failed this city"
+  end
+end
+

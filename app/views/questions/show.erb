@@ -1,3 +1,4 @@
+
 <div id="question">
   <h2> <%= @question.title %> </h2>
   <h3> <%= @question.content  %> </h3>
@@ -14,9 +15,28 @@
   <% end %>
 
   <% if current_user %>
-  <button id="new_answer_button">Add an answer!</button>
+
   <button id="new_comment_button">
     <a href="/questions/<%= @question.id %>/comment/new">Add a comment!</a>
   </button>
   <% end %>
 </div>
+
+  <div class="container">
+  Votes:   <%= @question.votes.size %>
+  <form method="post" action="/questions/<%= @question.id %>/votes">
+    <input type="submit" value="Upvote">
+  </form>
+  <% if current_user %>
+  <button id="answer"><a href="#">Add an answer!</a></button>
+    <form class="answer_form" method="post" target="/questions/<%= @question.id %>/answers">
+      <input name="answer[content]" type="text" placeholder="Enter your answer!">
+      <input id="submit_answer" type="submit" value="Submit your answer!">
+    </form>
+    <% end %>
+  </div>
+</div>
+<div id="answer-container">
+<%= erb :"questions/_answers", locals: {answers: @answers}  %>
+</div>
+
