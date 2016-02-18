@@ -11,3 +11,8 @@ post "/questions" do
 	current_user.questions << @question
 	redirect "/questions/#{@question.id}"
 end
+
+get "/questions/:id/answers" do
+  @answer = Answer.where(question_id: params[:id])
+  erb :"/questions/answers"
+end

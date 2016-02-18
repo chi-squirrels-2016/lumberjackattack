@@ -1,0 +1,10 @@
+<p><%= @answer.content %></p>
+<p class="author"><%= @answer.user_id %></p>
+<% if @answer.comments.any? %>
+<% @answer.comments.each do |comment| %>
+<p class="comments"><%= comment.content %></p>
+<% end %><% end %>
+<form method="post" action="/tasks/<%= @task.id %>">
+    <input type="hidden" name="_method" value="put">
+    <%= erb 'tasks/_form'.to_sym %>
+</form>
