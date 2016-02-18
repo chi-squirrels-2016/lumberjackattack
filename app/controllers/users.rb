@@ -21,7 +21,8 @@ post '/login' do
     session[:user_id] = user.id
     redirect "/questions"
   else
-    redirect "/"
+    @unmatch = "That password doesn't match!"
+    erb :"/user/login"
   end
 end
 

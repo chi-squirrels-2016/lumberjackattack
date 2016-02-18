@@ -11,3 +11,8 @@ post "/questions" do
 	current_user.questions << @question
 	redirect "/questions/#{@question.id}"
 end
+
+get "/questions/:id" do
+
+  erb :"/questions/show"
+end
