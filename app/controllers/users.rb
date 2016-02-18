@@ -21,7 +21,8 @@ post '/login' do
     session[:user_id] = user.id
     redirect "/questions"
   else
-    redirect "/"
+    @unmatch = "That password doesn't match!"
+    erb :"/user/login"
   end
 end
 
@@ -29,3 +30,9 @@ delete '/logout' do
   session.clear[:user_id]
   redirect "/login"
 end
+
+get '/users/:user_id' do
+  @user = User.find(params[:user_id])
+  erb :'user/show'
+end
+

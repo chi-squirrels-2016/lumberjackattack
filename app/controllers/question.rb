@@ -13,7 +13,8 @@ post "/questions" do
 	redirect "/questions/#{@question.id}"
 end
 get "/questions/:id" do
-  @answers = Answer.where(question_id: params[:id]).to_a
+  @question = Question.find(params[:id])
+  @answers = Answer.where(question_id: params[:id])
   erb :"/questions/show"
 end
 
