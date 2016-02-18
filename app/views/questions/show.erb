@@ -1,12 +1,22 @@
-<p>hello</p>
 <div id="question">
   <h2> <%= @question.title %> </h2>
   <h3> <%= @question.content  %> </h3>
 
+  <% if @comments %>
+    <div id="comments">
+      <% @comments.each do |comment| %>
+      <br>
+      <%= comment.content %>
+      <%= @username %>
+      <%= comment.created_at %>
+      <% end %>
+    </div>
+  <% end %>
 
-</div>
-
-<% if current_user %>
+  <% if current_user %>
   <button id="new_answer_button">Add an answer!</button>
-  <button id="new_comment_button">Add a comment!</button>
-<% end %>
+  <button id="new_comment_button">
+    <a href="/questions/<%= @question.id %>/comment/new">Add a comment!</a>
+  </button>
+  <% end %>
+</div>
