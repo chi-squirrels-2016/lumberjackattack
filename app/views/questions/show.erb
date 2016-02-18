@@ -1,11 +1,14 @@
-<p>hello</p>
 <div>
   <h2> <%= @question.title %> </h2>
   <h3> <%= @question.content  %> </h3>
-
-<button><a href="#">Add an answer!</a></button>
 </div>
-<%= erb :"questions/_answers", locals: {answers: @answers}  %>
+
+<button id="answer"><a href="#">Add an answer!</a></button>
+<form class="answer_form" method="post" target="/questions/<%= @question.id %>/answers">
+<input name="answer[content]" type="text" placeholder="Enter your answer!">
+<input id="submit_answer" type="submit" value="Submit your answer!">
+</form>
+<%= erb :"questions/_answers", layout: false, locals: {answers: @answers}  %>
 
 <button><a href="#">Add a comment!</a></button>
 
