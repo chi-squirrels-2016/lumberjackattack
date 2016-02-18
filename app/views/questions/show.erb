@@ -1,10 +1,12 @@
 <p>hello</p>
-<div>
+<div id="question">
   <h2> <%= @question.title %> </h2>
   <h3> <%= @question.content  %> </h3>
 
 
 </div>
 
-<button><a href="#">Add an answer!</a></button>
-<button><a href="#">Add a comment!</a></button>
+<% if current_user %>
+  <button id="new_answer_button">Add an answer!</button>
+  <button id="new_comment_button">Add a comment!</button>
+<% end %>

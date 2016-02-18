@@ -18,4 +18,6 @@ get "/questions/:id" do
 
   erb :"/questions/show"
 end
-
+# when you click the add comment button, a comment form drops down, the add comment button disappears (magically)
+# if you don't add text to the comment form, it will not save and an error pops up
+# if you do add text, when you click the button, the comment is saved in the data base, it appears under the question (magically), and the add comment button reappears
