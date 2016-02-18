@@ -1,14 +1,22 @@
 <div>
   <h2> <%= @question.title %> </h2>
   <h3> <%= @question.content  %> </h3>
+
+</div>
   <div class="container">
   Votes:   <%= @question.votes.size %>
   <form method="post" action="/questions/<%= @question.id %>/votes">
     <input type="submit" value="Upvote">
   </form>
-  <button><a href="#">Add an answer!</a></button>
+  <button id="answer"><a href="#">Add an answer!</a></button>
+    <form class="answer_form" method="post" target="/questions/<%= @question.id %>/answers">
+      <input name="answer[content]" type="text" placeholder="Enter your answer!">
+      <input id="submit_answer" type="submit" value="Submit your answer!">
+    </form>
+  </div>
 </div>
-</div>
+<div id="answer-container">
 <%= erb :"questions/_answers", locals: {answers: @answers}  %>
+</div>
 <button><a href="#">Add a comment!</a></button>
 
