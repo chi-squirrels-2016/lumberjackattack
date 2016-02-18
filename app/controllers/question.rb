@@ -46,10 +46,12 @@ end
 
 post "/questions/:id/answers" do
   @answer = Answer.create(user_id: current_user.id, question_id: params[:id], content: params[:answer][:content])
+  the_id = params[:id]
+  puts the_id
   answers = Answer.where(question_id: params[:id]).to_a
   if request.xhr?
     status 200
-    erb :"/questions/_answers", layout: false, locals: {answers: answers}
+    erb :"/questions/_answers", layout: false, locals: { the_id: the_id, answers: answers}
   else
     puts "You have failed this city"
   end
@@ -62,5 +64,12 @@ end
 #   end
 # end
 
+
+post "/questions/:question_id/answers/:answer_id" do
+  @answer = Answer.find(params[:answer_id])
+  @answer.votes.create(value: 1)
+  puts "8" * 60
+  redirect "/questions/#{params[:question_id]}"
+end
 
 
