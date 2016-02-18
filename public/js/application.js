@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $("#new_comment_button").on("click", function( event ) {
     event.preventDefault();
     var url = $("#new_comment_button").find("a").attr("href");
@@ -10,6 +11,7 @@ $(document).ready(function() {
       $("#new_answer_button").hide();
       $('#new_comment_button').hide();
     });
+  });
 
     $("#question").on("submit", "#new_comment", function (event){
       event.preventDefault();
@@ -17,17 +19,15 @@ $(document).ready(function() {
       var url = $(this).attr("action");
       var type = $(this).attr("method");
       var comment = $(this).find("textarea").val();
-      console.log(comment);
-
       $.ajax ({
         type: type,
         url: url,
         data: {content: comment}
       }).done( function (response) {
         $(response).appendTo("#comments");
-        $("#new_comment").hide();
-        $("#new_answer_button").show();
-        $('#new_comment_button').show();
+        $('#question').find("#new_comment").remove();
+        // $("#new_answer_button").append("#question");
+        $('#question').find("#new_comment_button").show();
       });
      });
 
@@ -54,4 +54,4 @@ $(document).ready(function() {
     });
   });
 });
-});
+
