@@ -3,8 +3,9 @@
   <h2> <%= @question.title %> </h2>
   <h3> <%= @question.content  %> </h3>
 
-
-</div>
-
 <button><a href="#">Add an answer!</a></button>
+</div>
+<%= erb :"questions/_answers", locals: {answers: @answers}  %>
+
 <button><a href="#">Add a comment!</a></button>
+
