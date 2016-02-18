@@ -21,8 +21,10 @@ end
 
 post "/questions/:id/answers" do
   @answer = Answer.create(user_id: current_user.id, question_id: params[:id], content: params[:answer][:content])
+  answers = Answer.where(question_id: params[:id]).to_a
   if request.xhr?
-    return {content: @answer.content, id: @answer.id, user_id: @answer.user_id}.to_json
+    status 200
+    erb :"/questions/_answers", layout: false, locals: {answers: answers}
   else
     puts "You have failed this city"
   end

@@ -16,7 +16,7 @@ $(document).ready(function() {
     });
 
     request.done(function(response){
-      console.log(response);
+      $("#answer-container").replaceWith(response);
     });
     request.fail(function(data){
       console.log(data);
