@@ -7,7 +7,7 @@ $(document).ready(function() {
       url: url
     }).done( function (response) {
       $(response).appendTo("#question");
-      $("#new_answer_button").hide();
+      // $("#new_answer_button").hide();
       $('#new_comment_button').hide();
     });
 
@@ -26,15 +26,12 @@ $(document).ready(function() {
       }).done( function (response) {
         $(response).appendTo("#comments");
         $("#new_comment").hide();
-        $("#new_answer_button").show();
+        // $("#new_answer_button").show();
         $('#new_comment_button').show();
       });
      });
-
-  $("#answer").on("click", function(event){
-    event.preventDefault();
-    $(".answer_form").toggle();
   });
+
 
   $(".answer_form").on("submit", function(event){
     event.preventDefault();
@@ -48,10 +45,13 @@ $(document).ready(function() {
 
     request.done(function(response){
       $("#answer-container").replaceWith(response);
-    });
-    request.fail(function(data){
-      console.log(data);
+      $(".answer_form").slideToggle();
+
     });
   });
+
+  $("#answer_button").on("click", function(event){
+    event.preventDefault();
+    $(".answer_form").slideToggle();
   });
 });
