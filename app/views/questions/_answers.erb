@@ -1,5 +1,5 @@
-<% answers = Answer.where(question_id: question.id)%>
 <% answers.each do |answer| %>
+
 <p><%= answer.content %></p>
 <p class="author"><%=User.find_by(id: answer.user_id).username %></p>
 <% end %>
