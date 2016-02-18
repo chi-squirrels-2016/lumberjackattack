@@ -57,6 +57,14 @@ post "/questions/:id/answers" do
   end
 end
 
+# post "/questions/:question_id/answers/:answer_id/best_answer" do
+#   if request.xhr?
+
+#   else
+#   end
+# end
+
+
 post "/questions/:question_id/answers/:answer_id" do
   @answer = Answer.find(params[:answer_id])
   @answer.votes.create(value: 1)

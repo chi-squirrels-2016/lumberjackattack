@@ -53,5 +53,23 @@ $(document).ready(function() {
       console.log(data);
     });
   });
+
+  // $("#best_answer").on("click", function (event) {
+  //   event.preventDefault();
+  //   var url = $(this).attr("action");
+  //   var type = $(this).attr("method");
+  //   $.ajax({
+  //     type: type,
+  //     url: url
+  //   }).done( function(response) {
+
+
+  //   })
+
+
+
+
+  // })
+
 });
 
