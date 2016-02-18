@@ -4,9 +4,14 @@ get '/login' do
 end
 
 post '/signup' do
-  user = User.create(email: params[:email], username: params[:username], password: params[:password])
-  session[:user_id] = user.id
-  redirect "/questions"
+  user = User.new(email: params[:email], username: params[:username], password: params[:password])
+  if user.save
+    session[:user_id] = user.id
+    redirect "/questions"
+  else
+    @errors = user.errors.full_messages
+    erb :"/user/login"
+  end
 end
 
 post '/login' do
@@ -16,7 +21,8 @@ post '/login' do
     session[:user_id] = user.id
     redirect "/questions"
   else
-    redirect "/"
+    @unmatch = "That password doesn't match!"
+    erb :"/user/login"
   end
 end
 
