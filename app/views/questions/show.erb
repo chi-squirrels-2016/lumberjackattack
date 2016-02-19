@@ -1,8 +1,12 @@
-
 <div id="question">
   <h2> <%= @question.title %> </h2>
   <h3> <%= @question.content  %> </h3>
 
+  <div class="upvote">
+    <form method="post" action="/questions/<%= @question.id %>/votes">
+      <button id="vote" type="submit" value="Upvote"><div class="arrow-up"></div></button>Votes:   <%= @question.votes.size %>
+    </form>
+    </div>
   <% if @comments %>
     <div id="comments">
       <% @comments.each do |comment| %>
@@ -23,10 +27,6 @@
 </div>
 
   <div class="container">
-  Votes:   <%= @question.votes.size %>
-  <form method="post" action="/questions/<%= @question.id %>/votes">
-    <input type="submit" value="Upvote">
-  </form>
   <div id="weird">
   <button id="answer_button"><a href="">Add an answer!</a></button>
 

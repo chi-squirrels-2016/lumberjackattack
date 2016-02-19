@@ -1,12 +1,10 @@
+<% @questions.each do |question| %>
 
-
-	<% @questions.each do |question| %>
-	
 	<ul id= '<%= question.id %>'>
 		<li><a href="/questions/<%= question.id %>"	><%= question.title %></a></li>
 		<li class="votes"><%= question.votes.count %> Votes</li>
-		<li class="answers"><%= question.answers.count %> Answers</li>		
-			
+		<li class="answers"><%= question.answers.count %> Answers</li>
+
 	</ul>
 	<% end %>
 <div class="headline">

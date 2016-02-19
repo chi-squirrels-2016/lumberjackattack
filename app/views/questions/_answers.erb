@@ -8,13 +8,9 @@
     <button id='button' type='submit'>Best Answer?!</button>
   </form>
 
-
-  <p>Votes:<%= answer.votes.count %> </p>
-  <p class="vote">
-    <form action="/questions/<%= the_id %>/answers/<%= answer.id %>" method="POST">
-      <input type="submit" value="UpVote">
-    </form>
-  </p>
+  <div class="upvote">
+    <form action="/questions/<%= the_id %>/answers/<%= answer.id %>" method="POST"><button id="vote" type="submit" value="UpVote"><div class="arrow-up"></div></button>Votes:<%= answer.votes.count %></form>
+    </div>
 
 <% end %>
 </div>
