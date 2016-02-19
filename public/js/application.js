@@ -8,7 +8,6 @@ $(document).ready(function() {
       url: url
     }).done( function (response) {
       $(response).appendTo("#question");
-      $("#new_answer_button").hide();
       $('#new_comment_button').hide();
     });
   });
@@ -25,18 +24,17 @@ $(document).ready(function() {
         data: {content: comment}
       }).done( function (response) {
         $(response).appendTo("#comments");
+
         $('#question').find("#new_comment").remove();
         // $("#new_answer_button").append("#question");
         $('#question').find("#new_comment_button").show();
+
       });
      });
 
-  $("#answer").on("click", function(event){
-    event.preventDefault();
-    $(".answer_form").toggle();
-  });
 
-  $(".answer_form").on("submit", function(event){
+
+  $("#weird").on("submit", ".answer_form", function(event){
     event.preventDefault();
     var url = $(this).attr("target");
     var data = $(this).serialize();
@@ -47,11 +45,34 @@ $(document).ready(function() {
     });
 
     request.done(function(response){
-      $("#answer-container").replaceWith(response);
-    });
-    request.fail(function(data){
-      console.log(data);
+      console.log(response);
+      $("#answer-block").replaceWith(response);
+      $(".answer_form").slideToggle();
+
     });
   });
+
+  $("#answer_button").on("click", function(event){
+    event.preventDefault();
+    $(".answer_form").slideToggle();
+  });
+  // $("#best_answer").on("click", function (event) {
+  //   event.preventDefault();
+  //   var url = $(this).attr("action");
+  //   var type = $(this).attr("method");
+  //   $.ajax({
+  //     type: type,
+  //     url: url
+  //   }).done( function(response) {
+
+
+  //   })
+
+
+
+
+  // })
+
 });
+
 
