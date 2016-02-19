@@ -23,9 +23,10 @@ ul {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	background-image: none;
+	background-image: linear-gradient(to bottom #FF5722, 25%);
 	border: 1px solid #FF5722;
 	border-radius: 4px;
+
 }
 
 .question {
@@ -53,10 +54,28 @@ ul {
 li {
 	display: inline;
 }
-#options {
-	display: inline;
-}
 
 .container {
-	width: 1200px;
+	width: 1400px;
+
 }
+.navbar li {
+	padding: 15px 15px;
+}
+
+
+.navbar-inverse {
+  background-color: #222;
+  border-color: #080808;
+}
+
+.container2 {
+	text-align:center;
+}
+a {
+	color:#222;
+}
+ .navbar-right {
+    float: right !important;
+    margin-right: 150px;
+  }
