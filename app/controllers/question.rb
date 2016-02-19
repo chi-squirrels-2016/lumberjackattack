@@ -17,8 +17,6 @@ get "/questions/:id" do
   @question = Question.find(params[:id])
   @answers = Answer.where(question_id: params[:id])
   @comments = @question.comments
-  @username = User.find(session[:user_id]).username
-  p @username
   erb :"/questions/show"
 end
 
@@ -32,7 +30,6 @@ get "/questions/:question_id/comment/new" do
 end
 
 post "/questions/:question_id/comment" do
-  p params
   user = User.find(session[:user_id])
   question = Question.find(params[:question_id])
   comment = question.comments.create(content: params[:content], user: user)

@@ -1,6 +1,7 @@
+<div id="answer-block">
 <% answers.each do |answer| %>
   <p><%= answer.content %></p>
-  <p class="author">By: <%=User.find_by(id: answer.user_id).username %></p>
+  <p class="author">By: <%=User.find_by(id: answer.user_id).username %>, Date: <%= answer.created_at %></p>
 
 
   <form id="best_answer" name="best_answer" action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/best_answer" method="post">
@@ -16,3 +17,4 @@
   </p>
 
 <% end %>
+</div>

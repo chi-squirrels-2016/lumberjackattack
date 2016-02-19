@@ -7,8 +7,8 @@
     <div id="comments">
       <% @comments.each do |comment| %>
       <br>
-      <%= comment.content %>
-      <%= @username %>
+      <%= comment.content %>////
+      <%= User.find_by(id: comment.user_id).username%> ///
       <%= comment.created_at %>
       <% end %>
     </div>
@@ -27,17 +27,17 @@
   <form method="post" action="/questions/<%= @question.id %>/votes">
     <input type="submit" value="Upvote">
   </form>
-  <% if current_user %>
-  <button id="answer"><a href="#">Add an answer!</a></button>
-    <form class="answer_form" method="post" target="/questions/<%= @question.id %>/answers">
-      <input name="answer[content]" type="text" placeholder="Enter your answer!">
-      <input id="submit_answer" type="submit" value="Submit your answer!">
-    </form>
-    <% end %>
+  <div id="weird">
+  <button id="answer_button"><a href="">Add an answer!</a></button>
+
+      <form class="answer_form" method="post" target="/questions/<%= @question.id %>/answers">
+        <input name="answer[content]" type="text" placeholder="Enter your answer!" autocomplete="off">
+        <input id="submit_answer" type="submit" value="Submit your answer!">
+      </form>
+    </div>
   </div>
 </div>
 
 <div id="answer-container">
 <%= erb :"questions/_answers", locals: {answers: @answers, the_id: @question.id}  %>
 </div>
-
