@@ -1,11 +1,15 @@
-<h1> <%= @user.username %>'s Page </h1>
+<div class="jumbotron">
 
+	<h1 class="fa fa-user"> <%= @user.username %></h1>
+</div>
 <div class = "container">
-  <% @user.questions.each do |question| %>
-  <article>
-    <a href="/questions/<%= question.id %>"><%= question.title %></a>
-    <p>Votes: <%= question.votes.length %></p>
-  </article>
-  <% end %>
+	<% @user.questions.each do |question| %>
+	<article>
+		<ul class="list-group">
+			<li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
+			<li><p class="label label-success ">Votes: <%= question.votes.length %></p></li>
+		</ul>
+	</article>
 
+	<% end %>
 </div>
