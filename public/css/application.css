@@ -65,8 +65,8 @@ li {
 
 
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+	background-color: #222;
+	border-color: #080808;
 }
 
 .container2 {
@@ -75,7 +75,13 @@ li {
 a {
 	color:#222;
 }
- .navbar-right {
-    float: right !important;
-    margin-right: 150px;
-  }
+.navbar-right {
+	float: right !important;
+	margin-right: 150px;
+}
+
+.list-group {
+  padding-left: 0;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
