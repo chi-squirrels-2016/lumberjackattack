@@ -1,7 +1,4 @@
-<div class="headline">
-	<a href="/questions/ask" class="btn question">Ask a Question</a>
-</div>
-<div class= "container">
+
 
 	<% @questions.each do |question| %>
 	
@@ -11,8 +8,9 @@
 		<li class="answers"><%= question.answers.count %> Answers</li>		
 			
 	</ul>
-	</article>
 	<% end %>
-
-
+<div class="headline">
+	<a href="/questions/ask" class="btn question">Ask a Question</a>
 </div>
+
+
