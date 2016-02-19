@@ -4,7 +4,7 @@
 	
 	<ul id= '<%= question.id %>'>
 		<li><a href="/questions/<%= question.id %>"	><%= question.title %></a></li>
-		<li class="votes"><%= question.votes.count %> Votes</li>
+		<li class="votes label label-success"><%= question.votes.count %> Votes</li>
 		<li class="answers"><%= question.answers.count %> Answers</li>		
 			
 	</ul>
