@@ -17,6 +17,7 @@ get "/questions/:id" do
   @question = Question.find(params[:id])
   @answers = Answer.where(question_id: params[:id])
   @comments = @question.comments
+
   erb :"/questions/show"
 end
 
@@ -54,12 +55,12 @@ post "/questions/:id/answers" do
   end
 end
 
-# post "/questions/:question_id/answers/:answer_id/best_answer" do
-#   if request.xhr?
-
-#   else
-#   end
-# end
+post "/questions/:question_id/answers/:answer_id/best_answer" do
+  @question = Question.find_by(id: params[:question_id])
+  @question.best_answer_id = params[:answer_id]
+  @question.save
+  redirect "/questions/#{@question.id}"
+end
 
 
 post "/questions/:question_id/answers/:answer_id" do

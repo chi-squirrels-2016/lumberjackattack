@@ -1,15 +1,22 @@
-
+<div id="upper">
 <div id="question">
-  <h2> <%= @question.title %> </h2>
-  <h3> <%= @question.content  %> </h3>
+  <h3> <%= @question.title %> </h3>
+  <h4> <%= @question.content  %> </h4>
+  <h4> Posted By: <%= User.find_by(id: @question.user_id).username  %> </h4>
 
-  <% if @comments %>
+  <div class="upvote">
+    <form method="post" action="/questions/<%= @question.id %>/votes">
+      <button id="vote" type="submit" value="Upvote"><div class="arrow-up"></div></button>Votes:   <%= @question.votes.size %>
+    </form>
+    </div>
+</div>
+  <h4 id="comment_header">Comments</h4>
     <div id="comments">
+  <% if @comments %>
       <% @comments.each do |comment| %>
-      <br>
-      <%= comment.content %>////
-      <%= User.find_by(id: comment.user_id).username%> ///
-      <%= comment.created_at %>
+      <p class="comment"><%= comment.content %><br>
+      <%= User.find_by(id: comment.user_id).username%><br>
+      <%= comment.created_at %></p>
       <% end %>
     </div>
   <% end %>
@@ -22,22 +29,20 @@
   <% end %>
 </div>
 
-  <div class="container">
-  Votes:   <%= @question.votes.size %>
-  <form method="post" action="/questions/<%= @question.id %>/votes">
-    <input type="submit" value="Upvote">
-  </form>
   <div id="weird">
   <button id="answer_button"><a href="">Add an answer!</a></button>
-
+      <% if current_user %>
       <form class="answer_form" method="post" target="/questions/<%= @question.id %>/answers">
         <input name="answer[content]" type="text" placeholder="Enter your answer!" autocomplete="off">
         <input id="submit_answer" type="submit" value="Submit your answer!">
       </form>
+      <% end %>
     </div>
   </div>
 </div>
 
 <div id="answer-container">
+
 <%= erb :"questions/_answers", locals: {answers: @answers, the_id: @question.id}  %>
+
 </div>

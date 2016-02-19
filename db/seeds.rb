@@ -33,7 +33,7 @@ comment4 = question3.comments.create!(content: "I really wish there were more be
 comment6 = question3.comments.create!(content: "I like to style my beard with maple syrup", user_id: 4)
 comment7 = question4.comments.create!(content: "Any tips for axe sharpening?", user_id: 3)
 comment8 = question4.comments.create!(content: "I'm a lumberjack looking for my lumberjill", user_id: 5)
-comment9 = question5.comments.create!(content: "If I'm a lumberjack, am I OK?")
+comment9 = question5.comments.create!(content: "If I'm a lumberjack, am I OK?", user_id: 2)
 comment10 = question6.comments.create!(content: "It depends. What is your favorite tartan?", user_id: 1)
 comment11 = question6.comments.create!(content: "My boots are getting soggy from all this otter blood.", user_id: 5)
 

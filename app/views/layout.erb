@@ -26,9 +26,10 @@
     <nav class= "navbar navbar-nav navbar-fixed top navbar-inverse">
 
       <div class="container">
+
         <h1 class="navbar-brand navbar-inverse fa fa-gavel"> LumberJackOverFlow</h1>
-        <%  if current_user %>
         <ul class="nav nav-pills navbar-right">
+        <%  if current_user %>
           <li><button class="btn btn-default navbar-btn"><a href="/">home</a></button></li>
 
           <li>
@@ -39,7 +40,7 @@
               </form>
 
           </li>
-          
+
           <li><button class="btn btn-default navbar-btn"><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></button></li>
           <% else %>
           <li><button class="btn btn-default navbar-btn"><a href="/">home</a></button></li>
@@ -50,10 +51,11 @@
       </ul>
 
     </nav>
+  </div>
   </header>
-  <div class="container2">
+<br>
+  <div class="yield_stuff">
     <%= yield %>
   </div>
-</div>
 </body>
 </html>
