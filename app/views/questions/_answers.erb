@@ -1,16 +1,22 @@
 <div id="answer-block">
-<% answers.each do |answer| %>
-  <p><%= answer.content %></p>
-  <p class="author">By: <%=User.find_by(id: answer.user_id).username %>, Date: <%= answer.created_at %></p>
-
-
-  <form id="best_answer" name="best_answer" action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/best_answer" method="post">
-    <button id='button' type='submit'>Best Answer?!</button>
-  </form>
-
-  <div class="upvote">
-    <form action="/questions/<%= the_id %>/answers/<%= answer.id %>" method="POST"><button id="vote" type="submit" value="UpVote"><div class="arrow-up"></div></button>Votes:<%= answer.votes.count %></form>
-    </div>
-
-<% end %>
-</div>
+  <% answers.each do |answer| %>
+    <div>
+      <div class="upvote">
+        <form action="/questions/<%= the_id %>/answers/<%= answer.id %>" method="POST"><button id="vote" type="submit" value="UpVote"><div class="arrow-up"></div></button>Votes:<%= answer.votes.count %></form>
+      </div>
+      <% if Question.find_by(id: answer.question_id).best_answer_id == answer.id %>
+        <img src="http://www.bounce-house-insurance.com/wp-content/uploads/small-green-checkmark.gif" />
+        <img src="http://www.bounce-house-insurance.com/wp-content/uploads/small-green-checkmark.gif" />
+        <img src="http://www.bounce-house-insurance.com/wp-content/uploads/small-green-checkmark.gif" />
+      <%end%>
+      <p><%= answer.content %></div></p>
+      <p>Posted By: <%=User.find_by(id: answer.user_id).username %> </p><p>Date: <%= answer.created_at %></p>
+      <div class="best_ans">
+        <% if current_user%>
+        <% if current_user.id == Question.find_by(id: answer.question_id).user_id && Question.find_by(id: answer.question_id).best_answer_id == nil %>
+          <form id="best_answer" name="best_answer" action="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/best_answer" method="post">
+          <button id='button' type='submit'>Best Answer?!</button></form>
+        <% end %><% end %>
+      </div>
+  <% end %>
+</div></div>

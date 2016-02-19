@@ -26,7 +26,6 @@ $(document).ready(function() {
         $(response).appendTo("#comments");
 
         $('#question').find("#new_comment").remove();
-        // $("#new_answer_button").append("#question");
         $('#question').find("#new_comment_button").show();
 
       });
@@ -48,7 +47,6 @@ $(document).ready(function() {
       console.log(response);
       $("#answer-block").replaceWith(response);
       $(".answer_form").slideToggle();
-
     });
   });
 
@@ -56,22 +54,18 @@ $(document).ready(function() {
     event.preventDefault();
     $(".answer_form").slideToggle();
   });
-  // $("#best_answer").on("click", function (event) {
-  //   event.preventDefault();
-  //   var url = $(this).attr("action");
-  //   var type = $(this).attr("method");
-  //   $.ajax({
-  //     type: type,
-  //     url: url
-  //   }).done( function(response) {
-
-
-  //   })
-
-
-
-
-  // })
+$("#best_ans").on("submit", function (event) {
+    event.preventDefault();
+    var url = $(this).attr("action");
+    var request = $.ajax({
+      method: 'post',
+      url: url
+    });
+    request.done( function(response) {
+      $(".best_ans").slideToggle();
+      console.log($(".best_ans").parent());
+    });
+  });
 
 });
 
